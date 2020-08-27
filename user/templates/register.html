@@ -1,0 +1,20 @@
+{% extends "Base.html" %}
+
+{% block context %}
+    {% if err %}<h2>{{ err }}</h2>{% endif %}
+    <form action="/user/register" method="post" enctype="multipart/form-data">
+       <label>昵称:</label><input type="text" name="name" placeholder="请输入您的昵称">
+       <label>手机:</label><input type="text" name="phone" placeholder="请输入您的手机">
+       <label>密码:</label><input type="password" name="password" placeholder="请输入密码">
+       <label>密码确认:</label><input type="password" name="ack_password" placeholder="请再输一遍">
+       <label>男</label><input type="radio" name="gender" value="male">
+       <label>女</label><input type="radio" name="gender" value="female">
+       <label>保密</label><input type="radio" name="gender" value="unknow" checked>
+       <label>生日</label><input type="date" name="birthday" min="1960-01-01" max="2012-12-31">
+       <label>城市</label><input type="text" name="location">
+        <label>头像</label><input type="file" name="user_image">
+         <!-- <label>头像</label><input type="file" name="user_image"> -->
+       <label>自我介绍</label><textarea name="description" rows="5"></textarea>
+       <label>点击注册</label><input type="submit" value="立即注册">
+    </form>
+{% endblock %}

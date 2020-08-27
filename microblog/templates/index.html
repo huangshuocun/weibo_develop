@@ -1,0 +1,23 @@
+{% extends "Base.html" %}
+
+{% block context %}
+   {% for item in weibo %}
+        <strong>{{ item.author.name }}</strong>说：
+        <br>
+        {{ item.content | replace('\n','<br />') | safe }}
+        <br>
+        <a href="/weibo/read?aid={{ item.id }}">{{ item.updated }}</a>
+   {% endfor %}
+    <hr>
+   <ul>
+       {% for pg in pages %}
+        <!-- 当前页不需要链接 -->
+            {% if pg == page %}
+                <li><a>{{ pg }}</a></li>
+            {% else %}
+                <li><a href="/weibo/index?page={{ pg }}">{{ pg }}</a></li>
+            {% endif %}
+       {% endfor %}
+   </ul>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "Base.html" %}
+
+{% block context %}
+   <h1>{{ weibo.author.name }}</h1>
+    <hr>
+    <p>
+        {{ weibo.content | replace('\n','<br>') | safe }}
+      <!-- 加safe则正常对待换行回车 -->
+    </p>
+    <div>{{ weibo.issued }}</div>
+    <a href="/weibo/update?aid={{ weibo.id }}">修改微博</a>
+    <a href="/weibo/delete?aid={{ weibo.id }}">删除微博</a>
+{% endblock %}

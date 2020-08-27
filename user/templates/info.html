@@ -1,0 +1,20 @@
+{% extends "Base.html" %}
+{% block context %}
+    <h1>{{ user_data.name }} 您好</h1>
+    <hr />
+    <img src="{{ user_data.user_image }}"  width="200px"  alt="error"/>
+    <ul>
+          {% if user_data.gender == 'male' %}
+          <li><strong>性别</strong>：小哥哥</li>
+          {% elif user_data.gender == 'female' %}
+          <li><strong>性别</strong>：小姐姐</li>
+          {% else %}
+          <li><strong>性别</strong>：保密</li>
+          {% endif %}
+          <li><strong>生日</strong>：{{ user_data.birthday }}</li>
+          <li><strong>城市</strong>：{{ user_data.location }}</li>
+          <li><strong>简介</strong>：{{ user_data.description }}</li>
+          <li><strong>注册时间</strong>：{{ user_data.register_time }}</li>
+    </ul>
+    <a href="/user/logout">退出登录</a>
+{% endblock %}

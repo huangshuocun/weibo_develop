@@ -1,0 +1,16 @@
+{% extends "Base.html" %}
+
+{% block context %}
+     <!-- 处理错误信息 -->
+    {% if err %}
+    <div>
+      <h2>{{ err }}</h2>
+    </div>
+    {% endif %}
+
+    <form action="/weibo/release" method="post">
+        <label>微博内容</label><textarea name="content"></textarea>
+        <br>
+        <input type="submit" value="发布微博">
+    </form>
+{% endblock %}

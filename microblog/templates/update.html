@@ -1,0 +1,16 @@
+{% extends "Base.html" %}
+
+{% block context %}
+    <!-- 处理错误信息 -->
+    {% if err %}
+      <p>{{ err }}</p>
+    {% endif %}
+
+    <form action="/weibo/update" method="post">
+        <label>微博内容</label>
+        <textarea name="update_content" rows="5">{{ weibo.content }}</textarea>
+        <!-- 定义一个隐藏字段用来保存微博ID，即所发布的微博序列号 -->
+        <input type="hidden" name=wid" value="{{ weibo.id }}">
+        <input type="submit" value="提交修改">
+    </form>
+{% endblock %}

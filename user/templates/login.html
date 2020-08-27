@@ -1,0 +1,11 @@
+{% extends "Base.html" %}
+
+{% block context %}
+    <!-- 处理错误信息 -->
+    {% if err %}<h2>{{ err }}</h2>{% endif %}
+    <form action="/user/login" method="post">
+       <label>昵称:</label><input type="text" name="name" placeholder="请输入您的昵称">
+       <label>密码:</label><input type="password" name="password" placeholder="请输入密码">
+       <label>点击登录</label><input type="submit" name="登录">
+    </form>
+{% endblock %}
